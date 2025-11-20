@@ -58,7 +58,8 @@ def get_station(station_id):
             if not valid_days:
                 metric["weighted_average"] = None
                 continue
-
+            
+            # Calcolo della media ponderata
             total_weighted = sum(d["average"] * d["sample_size"] for d in valid_days)
             total_samples = sum(d["sample_size"] for d in valid_days)
             weighted_avg = total_weighted / total_samples if total_samples > 0 else None
